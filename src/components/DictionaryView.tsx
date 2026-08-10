@@ -42,10 +42,10 @@ export const DictionaryView: React.FC<DictionaryViewProps> = ({ levels }) => {
   const currentFlashcard = searchedPairs[flashcardIndex];
 
   return (
-    <div className="max-w-5xl mx-auto px-4 py-6">
+    <div className="max-w-5xl mx-auto px-2 sm:px-4 py-3 sm:py-6">
       
       {/* Search & Header Controls */}
-      <div className="bg-white border-2 border-amber-200/80 rounded-3xl p-6 shadow-md mb-8">
+      <div className="bg-white border-2 border-slate-300 rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-md mb-6 sm:mb-8">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
           <div>
             <h2 className="text-xl sm:text-2xl font-black text-slate-800 flex items-center gap-2">
