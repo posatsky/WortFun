@@ -126,17 +126,17 @@ export const WordListManager: React.FC<WordListManagerProps> = ({
   };
 
   return (
-    <div className="max-w-5xl mx-auto px-4 py-6">
+    <div className="max-w-5xl mx-auto px-2 sm:px-4 py-3 sm:py-6">
       
       {/* Header Banner */}
-      <div className="bg-white border-2 border-amber-200/80 rounded-3xl p-6 mb-8 shadow-md">
+      <div className="bg-white border-2 border-slate-300 rounded-2xl sm:rounded-3xl p-4 sm:p-6 mb-6 sm:mb-8 shadow-md">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
             <h2 className="text-xl sm:text-2xl font-black text-slate-800 flex items-center gap-2">
               <FileText className="w-6 h-6 text-emerald-600" />
               Власні списки та набори слів
             </h2>
-            <p className="text-xs sm:text-sm text-slate-500 font-medium mt-1">
+            <p className="text-xs sm:text-sm text-slate-600 font-bold mt-1">
               Додавайте власні німецькі слова, імпортуйте списки з файлів або редагуйте створені рівні.
             </p>
           </div>
@@ -145,13 +145,13 @@ export const WordListManager: React.FC<WordListManagerProps> = ({
             <button
               onClick={handleExportJson}
               disabled={customLevels.length === 0}
-              className="px-3.5 py-2 rounded-2xl bg-amber-50 hover:bg-amber-100 text-slate-700 text-xs font-bold flex items-center gap-1.5 transition-colors border-2 border-amber-200 disabled:opacity-40 cursor-pointer"
+              className="px-3.5 py-2 rounded-2xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold flex items-center gap-1.5 transition-colors border-2 border-slate-300 disabled:opacity-40 cursor-pointer"
             >
               <Download className="w-4 h-4 text-orange-600" />
               <span>Експорт JSON</span>
             </button>
 
-            <label className="px-3.5 py-2 rounded-2xl bg-amber-50 hover:bg-amber-100 text-slate-700 text-xs font-bold flex items-center gap-1.5 transition-colors border-2 border-amber-200 cursor-pointer">
+            <label className="px-3.5 py-2 rounded-2xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold flex items-center gap-1.5 transition-colors border-2 border-slate-300 cursor-pointer">
               <Upload className="w-4 h-4 text-orange-600" />
               <span>Імпорт JSON</span>
               <input
@@ -166,7 +166,7 @@ export const WordListManager: React.FC<WordListManagerProps> = ({
       </div>
 
       {/* Form: Create Custom List */}
-      <div className="bg-white border-2 border-amber-200/80 rounded-3xl p-6 shadow-md mb-10">
+      <div className="bg-white border-2 border-slate-300 rounded-3xl p-6 shadow-md mb-10">
         <h3 className="text-lg font-black text-slate-800 mb-4 flex items-center gap-2">
           <Plus className="w-5 h-5 text-orange-500" />
           Створити новий список слів
@@ -252,7 +252,7 @@ export const WordListManager: React.FC<WordListManagerProps> = ({
         </h3>
 
         {customLevels.length === 0 ? (
-          <div className="bg-white border-2 border-dashed border-amber-200 rounded-3xl p-8 text-center text-slate-500 font-medium text-sm">
+          <div className="bg-white border-2 border-dashed border-slate-300 rounded-3xl p-8 text-center text-slate-700 font-bold text-sm">
             У вас поки немає доданих власних списків. Створіть новий вище або згенеруйте за допомогою Gemini AI!
           </div>
         ) : (
@@ -262,7 +262,7 @@ export const WordListManager: React.FC<WordListManagerProps> = ({
               return (
                 <div
                   key={lvl.id}
-                  className="bg-white border-2 border-amber-200/80 rounded-3xl p-5 hover:border-orange-400 transition-all flex flex-col justify-between shadow-sm"
+                  className="bg-white border-2 border-slate-300 rounded-3xl p-5 hover:border-orange-500 transition-all flex flex-col justify-between shadow-sm"
                 >
                   <div>
                     <div className="flex items-center justify-between mb-2">
