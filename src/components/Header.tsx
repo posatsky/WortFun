@@ -42,28 +42,28 @@ export const Header: React.FC<HeaderProps> = ({
   };
 
   return (
-    <header className="sticky top-0 z-30 bg-white border-b border-amber-200/80 text-slate-800 shadow-md">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 gap-2">
+    <header className="sticky top-0 z-30 bg-white border-b-2 border-slate-300 text-slate-900 shadow-md">
+      <div className="max-w-7xl mx-auto px-2.5 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-14 sm:h-16 gap-1.5 sm:gap-2">
           
           {/* Logo & Brand */}
           <div 
             onClick={() => setCurrentTab('game')} 
-            className="flex items-center gap-3 cursor-pointer group shrink-0"
+            className="flex items-center gap-2 sm:gap-3 cursor-pointer group shrink-0"
           >
-            <div className="bg-orange-500 p-2 rounded-xl text-white shadow-md group-hover:scale-105 transition-transform flex items-center justify-center font-black text-lg">
+            <div className="bg-orange-500 p-1.5 sm:p-2 rounded-xl text-white shadow-md group-hover:scale-105 transition-transform flex items-center justify-center font-black text-base sm:text-lg">
               DE
             </div>
             <div>
-              <div className="flex items-center gap-2">
-                <span className="font-black text-2xl tracking-tight text-slate-800">
+              <div className="flex items-center gap-1.5 sm:gap-2">
+                <span className="font-black text-xl sm:text-2xl tracking-tight text-slate-900">
                   WortFun
                 </span>
-                <span className="text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full bg-orange-100 text-orange-600 border border-orange-300">
+                <span className="text-[9px] sm:text-[10px] font-black uppercase tracking-wider px-1.5 sm:px-2 py-0.5 rounded-full bg-orange-100 text-orange-700 border border-orange-300">
                   DE &rarr; UA
                 </span>
               </div>
-              <p className="text-xs font-semibold text-slate-500 hidden sm:block">
+              <p className="text-xs font-bold text-slate-600 hidden sm:block">
                 Німецько-українські пари слів
               </p>
             </div>
@@ -71,19 +71,19 @@ export const Header: React.FC<HeaderProps> = ({
 
           {/* Quick Score & Level Bar in Game Mode */}
           {currentTab === 'game' && (
-            <div className="hidden md:flex items-center gap-4 bg-amber-50 px-4 py-1.5 rounded-2xl border-2 border-amber-200 text-sm font-bold">
-              <div className="flex items-center gap-1.5 text-slate-700">
-                <span className="text-xs text-slate-400 uppercase tracking-wider font-extrabold">Рівень:</span>
-                <span className="font-black text-slate-800">{currentLevelNumber} / {totalLevels}</span>
+            <div className="hidden md:flex items-center gap-4 bg-slate-100 px-4 py-1.5 rounded-2xl border-2 border-slate-300 text-sm font-bold">
+              <div className="flex items-center gap-1.5 text-slate-800">
+                <span className="text-xs text-slate-500 uppercase tracking-wider font-extrabold">Рівень:</span>
+                <span className="font-black text-slate-900">{currentLevelNumber} / {totalLevels}</span>
               </div>
-              <div className="h-4 w-0.5 bg-amber-300" />
-              <div className="flex items-center gap-1.5 text-indigo-700">
-                <span className="text-xs text-slate-400 uppercase tracking-wider font-extrabold">Бали:</span>
-                <span className="font-black text-indigo-600">{score}</span>
+              <div className="h-4 w-0.5 bg-slate-300" />
+              <div className="flex items-center gap-1.5 text-indigo-800">
+                <span className="text-xs text-slate-500 uppercase tracking-wider font-extrabold">Бали:</span>
+                <span className="font-black text-indigo-700">{score}</span>
               </div>
               {streak > 1 && (
                 <>
-                  <div className="h-4 w-0.5 bg-amber-300" />
+                  <div className="h-4 w-0.5 bg-slate-300" />
                   <div className="flex items-center gap-1 text-orange-600 font-black animate-pulse">
                     🔥 x{streak}
                   </div>
@@ -101,8 +101,8 @@ export const Header: React.FC<HeaderProps> = ({
               title={soundEnabled ? "Звукові ефекти увімкнені" : "Звукові ефекти вимкнені"}
               className={`p-2 rounded-xl text-xs font-bold transition-all border-2 ${
                 soundEnabled 
-                  ? 'bg-orange-100 text-orange-600 border-orange-300 shadow-sm' 
-                  : 'bg-slate-100 text-slate-400 border-slate-200'
+                  ? 'bg-orange-100 text-orange-700 border-orange-300 shadow-sm' 
+                  : 'bg-slate-200 text-slate-500 border-slate-300'
               }`}
             >
               {soundEnabled ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}
@@ -113,8 +113,8 @@ export const Header: React.FC<HeaderProps> = ({
               title={speechEnabled ? "Озвучка німецьких слів увімкнена" : "Озвучка вимкнена"}
               className={`px-3 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-all border-2 ${
                 speechEnabled 
-                  ? 'bg-emerald-100 text-emerald-700 border-emerald-300 shadow-sm' 
-                  : 'bg-slate-100 text-slate-400 border-slate-200'
+                  ? 'bg-emerald-100 text-emerald-800 border-emerald-300 shadow-sm' 
+                  : 'bg-slate-200 text-slate-500 border-slate-300'
               }`}
             >
               <span>🗣️</span>
@@ -126,7 +126,7 @@ export const Header: React.FC<HeaderProps> = ({
               <button
                 onClick={onResetGame}
                 title="Перезапустити поточний рівень"
-                className="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors border-2 border-slate-200"
+                className="p-2 rounded-xl bg-slate-200 hover:bg-slate-300 text-slate-800 transition-colors border-2 border-slate-300"
               >
                 <RotateCcw className="w-4 h-4" />
               </button>
@@ -138,7 +138,7 @@ export const Header: React.FC<HeaderProps> = ({
               className={`px-3.5 py-1.5 rounded-xl text-xs font-black flex items-center gap-1.5 transition-all shadow-md active:translate-y-0.5 ${
                 currentTab === 'ai'
                   ? 'bg-indigo-600 text-white border-2 border-indigo-400'
-                  : 'bg-indigo-50 text-indigo-700 hover:bg-indigo-100 border-2 border-indigo-200'
+                  : 'bg-indigo-100 text-indigo-900 hover:bg-indigo-200 border-2 border-indigo-300'
               }`}
             >
               <Sparkles className="w-3.5 h-3.5 text-amber-400 animate-spin-slow" />
@@ -149,65 +149,65 @@ export const Header: React.FC<HeaderProps> = ({
         </div>
 
         {/* Secondary Navigation Row */}
-        <div className="flex items-center gap-2 py-2 overflow-x-auto no-scrollbar border-t border-amber-100 text-xs sm:text-sm font-bold">
+        <div className="flex items-center gap-1.5 sm:gap-2 py-1.5 sm:py-2 overflow-x-auto no-scrollbar border-t-2 border-slate-200 text-xs sm:text-sm font-bold">
           <button
             onClick={() => setCurrentTab('game')}
-            className={`px-4 py-2 rounded-2xl flex items-center gap-2 whitespace-nowrap transition-all border-2 ${
+            className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl sm:rounded-2xl flex items-center gap-1.5 sm:gap-2 whitespace-nowrap transition-all border-2 shrink-0 ${
               currentTab === 'game'
-                ? 'bg-orange-500 text-white border-orange-400 shadow-md'
-                : 'bg-slate-100 text-slate-600 border-transparent hover:border-slate-300'
+                ? 'bg-orange-500 text-white border-orange-400 shadow-md font-black'
+                : 'bg-slate-200/90 text-slate-800 border-slate-300 hover:bg-slate-300 font-black'
             }`}
           >
-            <Play className="w-4 h-4 fill-current" />
+            <Play className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current" />
             <span>Грати</span>
           </button>
 
           <button
             onClick={() => setCurrentTab('dictionary')}
-            className={`px-4 py-2 rounded-2xl flex items-center gap-2 whitespace-nowrap transition-all border-2 ${
+            className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl sm:rounded-2xl flex items-center gap-1.5 sm:gap-2 whitespace-nowrap transition-all border-2 shrink-0 ${
               currentTab === 'dictionary'
-                ? 'bg-indigo-600 text-white border-indigo-400 shadow-md'
-                : 'bg-slate-100 text-slate-600 border-transparent hover:border-slate-300'
+                ? 'bg-indigo-600 text-white border-indigo-400 shadow-md font-black'
+                : 'bg-slate-200/90 text-slate-800 border-slate-300 hover:bg-slate-300 font-black'
             }`}
           >
-            <BookOpen className="w-4 h-4" />
+            <BookOpen className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             <span>Словник та Флешкартки</span>
           </button>
 
           <button
             onClick={() => setCurrentTab('ai')}
-            className={`px-4 py-2 rounded-2xl flex items-center gap-2 whitespace-nowrap transition-all border-2 ${
+            className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl sm:rounded-2xl flex items-center gap-1.5 sm:gap-2 whitespace-nowrap transition-all border-2 shrink-0 ${
               currentTab === 'ai'
-                ? 'bg-purple-600 text-white border-purple-400 shadow-md'
-                : 'bg-slate-100 text-slate-600 border-transparent hover:border-slate-300'
+                ? 'bg-purple-600 text-white border-purple-400 shadow-md font-black'
+                : 'bg-slate-200/90 text-slate-800 border-slate-300 hover:bg-slate-300 font-black'
             }`}
           >
-            <Sparkles className="w-4 h-4 text-amber-300" />
+            <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-300" />
             <span>Згенерувати список (AI)</span>
           </button>
 
           <button
             onClick={() => setCurrentTab('custom')}
-            className={`px-4 py-2 rounded-2xl flex items-center gap-2 whitespace-nowrap transition-all border-2 ${
+            className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl sm:rounded-2xl flex items-center gap-1.5 sm:gap-2 whitespace-nowrap transition-all border-2 shrink-0 ${
               currentTab === 'custom'
-                ? 'bg-emerald-500 text-white border-emerald-400 shadow-md'
-                : 'bg-slate-100 text-slate-600 border-transparent hover:border-slate-300'
+                ? 'bg-emerald-600 text-white border-emerald-400 shadow-md font-black'
+                : 'bg-slate-200/90 text-slate-800 border-slate-300 hover:bg-slate-300 font-black'
             }`}
           >
-            <PlusCircle className="w-4 h-4" />
+            <PlusCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             <span>Додати свій список</span>
           </button>
 
           <button
             onClick={() => setCurrentTab('stats')}
-            className={`px-4 py-2 rounded-2xl flex items-center gap-2 whitespace-nowrap transition-all border-2 ml-auto ${
+            className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl sm:rounded-2xl flex items-center gap-1.5 sm:gap-2 whitespace-nowrap transition-all border-2 ml-auto shrink-0 ${
               currentTab === 'stats'
-                ? 'bg-amber-400 text-slate-900 border-amber-500 shadow-md'
-                : 'bg-slate-100 text-slate-600 border-transparent hover:border-slate-300'
+                ? 'bg-amber-400 text-slate-900 border-amber-500 shadow-md font-black'
+                : 'bg-slate-200/90 text-slate-800 border-slate-300 hover:bg-slate-300 font-black'
             }`}
           >
-            <Trophy className="w-4 h-4 text-orange-600" />
-            <span className="hidden sm:inline">Прогрес</span>
+            <Trophy className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-orange-600" />
+            <span>Прогрес</span>
           </button>
         </div>
 
