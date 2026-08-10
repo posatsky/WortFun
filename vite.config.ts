@@ -7,7 +7,7 @@ export default defineConfig(() => {
   return {
     base:'/WortFan'/,
     build: {
-      outDir: 'dist',
+      outDir: 'docs',
       assetsDir: 'assets',
       sourcemap: false,
     },
