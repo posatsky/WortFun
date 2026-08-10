@@ -1,0 +1,6 @@
+{
+  "name": "WortPaar - German Ukrainian Word Matching",
+  "description": "Гра для вивчення німецько-українських слів за парами, з рівнями та генерацією списків слів за допомогою Gemini AI.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
