@@ -99,7 +99,7 @@ export const Header: React.FC<HeaderProps> = ({
             <button
               onClick={toggleSound}
               title={soundEnabled ? "Звукові ефекти увімкнені" : "Звукові ефекти вимкнені"}
-              className={`p-2 rounded-xl text-xs font-bold transition-all border-2 ${
+              className={`p-2.5 rounded-xl text-xs font-bold transition-all border-2 ${
                 soundEnabled 
                   ? 'bg-orange-100 text-orange-700 border-orange-300 shadow-sm' 
                   : 'bg-slate-200 text-slate-500 border-slate-300'
@@ -111,13 +111,13 @@ export const Header: React.FC<HeaderProps> = ({
             <button
               onClick={toggleSpeech}
               title={speechEnabled ? "Озвучка німецьких слів увімкнена" : "Озвучка вимкнена"}
-              className={`px-3 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-all border-2 ${
+              className={`px-2.5 sm:px-3 py-2 rounded-xl text-xs font-black flex items-center gap-1.5 transition-all border-2 ${
                 speechEnabled 
                   ? 'bg-emerald-100 text-emerald-800 border-emerald-300 shadow-sm' 
                   : 'bg-slate-200 text-slate-500 border-slate-300'
               }`}
             >
-              <span>🗣️</span>
+              <span className="text-sm">🗣️</span>
               <span className="hidden sm:inline">DE Озвучка</span>
             </button>
 
@@ -126,7 +126,7 @@ export const Header: React.FC<HeaderProps> = ({
               <button
                 onClick={onResetGame}
                 title="Перезапустити поточний рівень"
-                className="p-2 rounded-xl bg-slate-200 hover:bg-slate-300 text-slate-800 transition-colors border-2 border-slate-300"
+                className="p-2.5 rounded-xl bg-slate-200 hover:bg-slate-300 text-slate-800 transition-colors border-2 border-slate-300"
               >
                 <RotateCcw className="w-4 h-4" />
               </button>
@@ -135,78 +135,82 @@ export const Header: React.FC<HeaderProps> = ({
             {/* AI Generator Shortcut */}
             <button
               onClick={() => setCurrentTab('ai')}
-              className={`px-3.5 py-1.5 rounded-xl text-xs font-black flex items-center gap-1.5 transition-all shadow-md active:translate-y-0.5 ${
+              className={`px-3 py-2 rounded-xl text-xs font-black flex items-center gap-1.5 transition-all shadow-md active:translate-y-0.5 ${
                 currentTab === 'ai'
                   ? 'bg-indigo-600 text-white border-2 border-indigo-400'
                   : 'bg-indigo-100 text-indigo-900 hover:bg-indigo-200 border-2 border-indigo-300'
               }`}
             >
-              <Sparkles className="w-3.5 h-3.5 text-amber-400 animate-spin-slow" />
-              <span>Gemini AI</span>
+              <Sparkles className="w-4 h-4 text-amber-400" />
+              <span className="hidden sm:inline">Gemini AI</span>
+              <span className="sm:hidden">AI</span>
             </button>
 
           </div>
         </div>
 
         {/* Secondary Navigation Row */}
-        <div className="flex items-center gap-1.5 sm:gap-2 py-1.5 sm:py-2 overflow-x-auto no-scrollbar border-t-2 border-slate-200 text-xs sm:text-sm font-bold">
+        <div className="flex items-center gap-2 py-2 overflow-x-auto no-scrollbar border-t-2 border-slate-200 text-xs sm:text-sm font-bold">
           <button
             onClick={() => setCurrentTab('game')}
-            className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl sm:rounded-2xl flex items-center gap-1.5 sm:gap-2 whitespace-nowrap transition-all border-2 shrink-0 ${
+            className={`px-3.5 sm:px-4 py-2 rounded-xl sm:rounded-2xl flex items-center gap-1.5 sm:gap-2 whitespace-nowrap transition-all border-2 shrink-0 ${
               currentTab === 'game'
                 ? 'bg-orange-500 text-white border-orange-400 shadow-md font-black'
                 : 'bg-slate-200/90 text-slate-800 border-slate-300 hover:bg-slate-300 font-black'
             }`}
           >
-            <Play className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current" />
+            <Play className="w-4 h-4 fill-current" />
             <span>Грати</span>
           </button>
 
           <button
             onClick={() => setCurrentTab('dictionary')}
-            className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl sm:rounded-2xl flex items-center gap-1.5 sm:gap-2 whitespace-nowrap transition-all border-2 shrink-0 ${
+            className={`px-3.5 sm:px-4 py-2 rounded-xl sm:rounded-2xl flex items-center gap-1.5 sm:gap-2 whitespace-nowrap transition-all border-2 shrink-0 ${
               currentTab === 'dictionary'
                 ? 'bg-indigo-600 text-white border-indigo-400 shadow-md font-black'
                 : 'bg-slate-200/90 text-slate-800 border-slate-300 hover:bg-slate-300 font-black'
             }`}
           >
-            <BookOpen className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-            <span>Словник та Флешкартки</span>
+            <BookOpen className="w-4 h-4" />
+            <span className="hidden sm:inline">Словник та Флешкартки</span>
+            <span className="sm:hidden">Словник</span>
           </button>
 
           <button
             onClick={() => setCurrentTab('ai')}
-            className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl sm:rounded-2xl flex items-center gap-1.5 sm:gap-2 whitespace-nowrap transition-all border-2 shrink-0 ${
+            className={`px-3.5 sm:px-4 py-2 rounded-xl sm:rounded-2xl flex items-center gap-1.5 sm:gap-2 whitespace-nowrap transition-all border-2 shrink-0 ${
               currentTab === 'ai'
                 ? 'bg-purple-600 text-white border-purple-400 shadow-md font-black'
                 : 'bg-slate-200/90 text-slate-800 border-slate-300 hover:bg-slate-300 font-black'
             }`}
           >
-            <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-300" />
-            <span>Згенерувати список (AI)</span>
+            <Sparkles className="w-4 h-4 text-amber-300" />
+            <span className="hidden sm:inline">Згенерувати список (AI)</span>
+            <span className="sm:hidden">AI Список</span>
           </button>
 
           <button
             onClick={() => setCurrentTab('custom')}
-            className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl sm:rounded-2xl flex items-center gap-1.5 sm:gap-2 whitespace-nowrap transition-all border-2 shrink-0 ${
+            className={`px-3.5 sm:px-4 py-2 rounded-xl sm:rounded-2xl flex items-center gap-1.5 sm:gap-2 whitespace-nowrap transition-all border-2 shrink-0 ${
               currentTab === 'custom'
                 ? 'bg-emerald-600 text-white border-emerald-400 shadow-md font-black'
                 : 'bg-slate-200/90 text-slate-800 border-slate-300 hover:bg-slate-300 font-black'
             }`}
           >
-            <PlusCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-            <span>Додати свій список</span>
+            <PlusCircle className="w-4 h-4" />
+            <span className="hidden sm:inline">Додати свій список</span>
+            <span className="sm:hidden">Свій список</span>
           </button>
 
           <button
             onClick={() => setCurrentTab('stats')}
-            className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl sm:rounded-2xl flex items-center gap-1.5 sm:gap-2 whitespace-nowrap transition-all border-2 ml-auto shrink-0 ${
+            className={`px-3.5 sm:px-4 py-2 rounded-xl sm:rounded-2xl flex items-center gap-1.5 sm:gap-2 whitespace-nowrap transition-all border-2 ml-auto shrink-0 ${
               currentTab === 'stats'
                 ? 'bg-amber-400 text-slate-900 border-amber-500 shadow-md font-black'
                 : 'bg-slate-200/90 text-slate-800 border-slate-300 hover:bg-slate-300 font-black'
             }`}
           >
-            <Trophy className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-orange-600" />
+            <Trophy className="w-4 h-4 text-orange-600" />
             <span>Прогрес</span>
           </button>
         </div>
