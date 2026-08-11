@@ -133,7 +133,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-amber-50 text-slate-800 font-sans antialiased selection:bg-orange-500 selection:text-white flex flex-col">
+    <div className="min-h-screen bg-amber-50 text-slate-900 font-sans antialiased selection:bg-orange-500 selection:text-white flex flex-col">
       
       {/* App Header & Navigation */}
       <Header
@@ -150,7 +150,7 @@ export default function App() {
       />
 
       {/* Main View Area */}
-      <main className="flex-1 pb-12">
+      <main className="flex-1 pb-20 sm:pb-12">
         {currentTab === 'game' && (
           <GameBoard
             levels={levels}
@@ -200,7 +200,7 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-amber-200/80 bg-white py-4 text-center text-xs text-slate-500 font-medium">
+      <footer className="border-t-2 border-slate-300 bg-white py-4 mb-16 sm:mb-0 text-center text-xs text-slate-700 font-bold">
         <p>WortFun • Інтерактивне вивчення німецько-українських слів з Gemini AI</p>
       </footer>
 
