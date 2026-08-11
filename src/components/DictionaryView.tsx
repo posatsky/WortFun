@@ -95,7 +95,7 @@ export const DictionaryView: React.FC<DictionaryViewProps> = ({ levels }) => {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Пошук слова німецькою або українською..."
-              className="w-full bg-slate-50 border-2 border-slate-200 rounded-2xl pl-10 pr-4 py-2.5 text-slate-800 placeholder-slate-400 text-sm font-semibold focus:outline-none focus:border-orange-500"
+              className="w-full bg-slate-50 border-2 border-slate-200 rounded-2xl pl-10 pr-4 py-2.5 text-slate-800 placeholder-slate-400 text-base font-semibold focus:outline-none focus:border-orange-500"
             />
           </div>
 
@@ -103,7 +103,7 @@ export const DictionaryView: React.FC<DictionaryViewProps> = ({ levels }) => {
             <select
               value={selectedLevelId}
               onChange={(e) => setSelectedLevelId(e.target.value)}
-              className="w-full bg-slate-50 border-2 border-slate-200 rounded-2xl px-3.5 py-2.5 text-slate-800 text-sm font-bold focus:outline-none focus:border-orange-500 cursor-pointer"
+              className="w-full bg-slate-50 border-2 border-slate-200 rounded-2xl px-3.5 py-2.5 text-slate-800 text-base font-bold focus:outline-none focus:border-orange-500 cursor-pointer"
             >
               <option value="all">Усі рівні ({levels.length})</option>
               {levels.map((lvl) => (
@@ -138,19 +138,19 @@ export const DictionaryView: React.FC<DictionaryViewProps> = ({ levels }) => {
                     <Volume2 className="w-5 h-5" />
                   </button>
                   <div>
-                    <div className="flex items-center gap-2">
-                      <span className="font-black text-slate-800 text-base sm:text-lg">
+                    <div className="flex flex-wrap items-center gap-2">
+                      <span className="font-black text-slate-800 text-lg sm:text-xl">
                         {pair.german}
                       </span>
-                      <span className="text-slate-300 text-xs font-bold">—</span>
-                      <span className="text-orange-600 font-bold text-base sm:text-lg">
+                      <span className="text-slate-300 text-sm font-bold">—</span>
+                      <span className="text-orange-600 font-black text-lg sm:text-xl">
                         {pair.ukrainian}
                       </span>
                     </div>
                     {pair.exampleGerman && (
-                      <p className="text-xs text-slate-500 font-medium italic mt-0.5">
+                      <p className="text-sm text-slate-600 font-medium italic mt-1">
                         «{pair.exampleGerman}»{' '}
-                        <span className="text-slate-400 not-italic font-normal">
+                        <span className="text-slate-500 not-italic font-normal">
                           ({pair.exampleUkrainian})
                         </span>
                       </p>
