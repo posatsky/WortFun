@@ -450,7 +450,7 @@ export const GameBoard: React.FC<GameBoardProps> = ({
                   onClick={() => handleCardClick(card)}
                   whileHover={{ scale: card.isSelected || card.isCorrect || card.isError ? 1.02 : 1.03 }}
                   whileTap={{ scale: 0.96 }}
-                  className={`relative rounded-2xl sm:rounded-3xl p-3.5 sm:p-5 flex flex-col justify-between text-left transition-all duration-150 min-h-[105px] sm:min-h-[120px] group cursor-pointer active:translate-y-0.5 active:shadow-none ${cardStyle}`}
+                  className={`relative rounded-2xl sm:rounded-3xl p-4 sm:p-5 flex flex-col justify-between text-left transition-all duration-150 min-h-[110px] sm:min-h-[125px] group cursor-pointer active:translate-y-0.5 active:shadow-none ${cardStyle}`}
                 >
                   {/* Language Tag Indicator or State Badge */}
                   <div className="flex items-center justify-between w-full mb-1.5">
@@ -483,13 +483,13 @@ export const GameBoard: React.FC<GameBoardProps> = ({
                         }`}
                         title="Прослухати вимову"
                       >
-                        <Volume2 className="w-4 h-4 sm:w-5 sm:h-5" />
+                        <Volume2 className="w-5 h-5" />
                       </span>
                     )}
                   </div>
 
                   {/* Main Word Text */}
-                  <div className={`font-black text-base sm:text-lg md:text-2xl leading-snug mt-auto break-words ${
+                  <div className={`font-black text-lg sm:text-xl md:text-2xl leading-snug mt-auto break-words ${
                     card.isSelected || card.isCorrect || card.isError ? 'text-white' : 'text-slate-900'
                   }`}>
                     {card.text}
