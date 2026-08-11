@@ -278,66 +278,66 @@ export const Header: React.FC<HeaderProps> = ({
       </div>
 
       {/* Sticky Bottom Navigation Bar for Mobile Phones */}
-      <nav className="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t-2 border-slate-300 shadow-[0_-4px_12px_rgba(0,0,0,0.1)] sm:hidden px-2 py-1.5">
+      <nav className="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t-2 border-slate-300 shadow-[0_-4px_16px_rgba(0,0,0,0.12)] sm:hidden px-1.5 py-1.5">
         <div className="grid grid-cols-5 gap-1 max-w-md mx-auto">
           <button
             onClick={() => setCurrentTab('game')}
-            className={`flex flex-col items-center justify-center py-1 rounded-xl transition-all ${
+            className={`flex flex-col items-center justify-center py-1.5 px-1 rounded-xl transition-all ${
               currentTab === 'game'
                 ? 'bg-orange-500 text-white font-black shadow-sm'
-                : 'text-slate-600 hover:text-slate-900 font-bold'
+                : 'text-slate-700 hover:text-slate-900 font-bold'
             }`}
           >
             <Play className={`w-5 h-5 ${currentTab === 'game' ? 'fill-current' : ''}`} />
-            <span className="text-[10px] mt-0.5 tracking-tight">Грати</span>
+            <span className="text-[11px] font-black mt-0.5 leading-none">Грати</span>
           </button>
 
           <button
             onClick={() => setCurrentTab('dictionary')}
-            className={`flex flex-col items-center justify-center py-1 rounded-xl transition-all ${
+            className={`flex flex-col items-center justify-center py-1.5 px-1 rounded-xl transition-all ${
               currentTab === 'dictionary'
                 ? 'bg-indigo-600 text-white font-black shadow-sm'
-                : 'text-slate-600 hover:text-slate-900 font-bold'
+                : 'text-slate-700 hover:text-slate-900 font-bold'
             }`}
           >
             <BookOpen className="w-5 h-5" />
-            <span className="text-[10px] mt-0.5 tracking-tight">Словник</span>
+            <span className="text-[11px] font-black mt-0.5 leading-none">Словник</span>
           </button>
 
           <button
             onClick={() => setCurrentTab('ai')}
-            className={`flex flex-col items-center justify-center py-1 rounded-xl transition-all ${
+            className={`flex flex-col items-center justify-center py-1.5 px-1 rounded-xl transition-all ${
               currentTab === 'ai'
                 ? 'bg-purple-600 text-white font-black shadow-sm'
-                : 'text-slate-600 hover:text-slate-900 font-bold'
+                : 'text-slate-700 hover:text-slate-900 font-bold'
             }`}
           >
             <Sparkles className="w-5 h-5 text-amber-300" />
-            <span className="text-[10px] mt-0.5 tracking-tight">AI Набір</span>
+            <span className="text-[11px] font-black mt-0.5 leading-none">AI Набір</span>
           </button>
 
           <button
             onClick={() => setCurrentTab('custom')}
-            className={`flex flex-col items-center justify-center py-1 rounded-xl transition-all ${
+            className={`flex flex-col items-center justify-center py-1.5 px-1 rounded-xl transition-all ${
               currentTab === 'custom'
                 ? 'bg-emerald-600 text-white font-black shadow-sm'
-                : 'text-slate-600 hover:text-slate-900 font-bold'
+                : 'text-slate-700 hover:text-slate-900 font-bold'
             }`}
           >
             <PlusCircle className="w-5 h-5" />
-            <span className="text-[10px] mt-0.5 tracking-tight">Свій список</span>
+            <span className="text-[11px] font-black mt-0.5 leading-none">Свій</span>
           </button>
 
           <button
             onClick={() => setCurrentTab('stats')}
-            className={`flex flex-col items-center justify-center py-1 rounded-xl transition-all ${
+            className={`flex flex-col items-center justify-center py-1.5 px-1 rounded-xl transition-all ${
               currentTab === 'stats'
                 ? 'bg-amber-400 text-slate-950 font-black shadow-sm'
-                : 'text-slate-600 hover:text-slate-900 font-bold'
+                : 'text-slate-700 hover:text-slate-900 font-bold'
             }`}
           >
             <Trophy className={`w-5 h-5 ${currentTab === 'stats' ? 'text-orange-600' : ''}`} />
-            <span className="text-[10px] mt-0.5 tracking-tight">Прогрес</span>
+            <span className="text-[11px] font-black mt-0.5 leading-none">Прогрес</span>
           </button>
         </div>
       </nav>
