@@ -489,7 +489,7 @@ export const GameBoard: React.FC<GameBoardProps> = ({
                   </div>
 
                   {/* Main Word Text */}
-                  <div className={`font-black text-[20px] sm:text-xl md:text-2xl leading-snug mt-auto break-words ${
+                  <div className={`font-black text-[25px] sm:text-xl md:text-2xl leading-snug mt-auto break-words ${
                     card.isSelected || card.isCorrect || card.isError ? 'text-white' : 'text-slate-900'
                   }`}>
                     {card.text}
