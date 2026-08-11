@@ -278,7 +278,7 @@ export const GameBoard: React.FC<GameBoardProps> = ({
               <select
                 value={currentLevelIndex}
                 onChange={(e) => setCurrentLevelIndex(Number(e.target.value))}
-                className="appearance-none bg-orange-500 text-white font-black px-3 sm:px-4 py-2 pr-8 sm:pr-9 rounded-xl sm:rounded-2xl border-2 border-orange-400 hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-400 cursor-pointer text-xs sm:text-sm shadow-md"
+                className="appearance-none bg-orange-500 text-white font-black px-3.5 sm:px-4 py-2.5 pr-8 sm:pr-9 rounded-xl sm:rounded-2xl border-2 border-orange-400 hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-400 cursor-pointer text-sm sm:text-base shadow-md"
               >
                 {levels.map((lvl, idx) => {
                   const prog = levelProgress[lvl.id];
@@ -290,36 +290,36 @@ export const GameBoard: React.FC<GameBoardProps> = ({
                   );
                 })}
               </select>
-              <div className="pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2 text-white text-[10px] sm:text-xs font-bold">
+              <div className="pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2 text-white text-xs font-bold">
                 ▼
               </div>
             </div>
 
             <div>
               <div className="flex items-center gap-1.5 sm:gap-2">
-                <span className="text-[10px] sm:text-xs font-black uppercase px-2 py-0.5 rounded-full bg-indigo-100 text-indigo-800 border border-indigo-300">
+                <span className="text-xs font-black uppercase px-2.5 py-0.5 rounded-full bg-indigo-100 text-indigo-900 border border-indigo-300">
                   {currentLevel.difficulty}
                 </span>
-                <span className="text-[10px] sm:text-xs font-bold text-slate-700">
+                <span className="text-xs font-black text-slate-800">
                   {currentLevel.category}
                 </span>
                 {currentLevel.isCustom && (
-                  <span className="text-[9px] sm:text-[10px] font-black uppercase px-1.5 sm:px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300">
+                  <span className="text-xs font-black uppercase px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-900 border border-emerald-300">
                     Ваш список
                   </span>
                 )}
               </div>
-              <p className="text-[11px] sm:text-xs font-bold text-slate-700 mt-0.5 line-clamp-1">
+              <p className="text-xs sm:text-sm font-bold text-slate-700 mt-1 line-clamp-1">
                 {currentLevel.description}
               </p>
             </div>
           </div>
 
           {/* Live Progress Metrics */}
-          <div className="flex items-center justify-between sm:justify-start gap-3 sm:gap-6 bg-slate-100 px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-xl sm:rounded-2xl border-2 border-slate-300 shrink-0 text-xs sm:text-sm font-bold">
+          <div className="flex items-center justify-between sm:justify-start gap-3 sm:gap-6 bg-slate-100 px-3.5 sm:px-5 py-2.5 sm:py-3 rounded-xl sm:rounded-2xl border-2 border-slate-300 shrink-0 text-xs sm:text-sm font-bold">
             <div>
-              <div className="text-slate-600 text-[9px] sm:text-[10px] uppercase font-black tracking-wider">Залишилось</div>
-              <div className="font-black text-slate-900 text-sm sm:text-base">
+              <div className="text-slate-600 text-xs uppercase font-black tracking-wider">Залишилось</div>
+              <div className="font-black text-slate-900 text-base sm:text-lg">
                 {remainingPairs} / {totalPairsCount}
               </div>
             </div>
@@ -327,8 +327,8 @@ export const GameBoard: React.FC<GameBoardProps> = ({
             <div className="h-7 sm:h-8 w-0.5 bg-slate-300" />
 
             <div>
-              <div className="text-slate-600 text-[9px] sm:text-[10px] uppercase font-black tracking-wider">Час</div>
-              <div className="font-mono font-black text-orange-600 text-sm sm:text-base">
+              <div className="text-slate-600 text-xs uppercase font-black tracking-wider">Час</div>
+              <div className="font-mono font-black text-orange-600 text-base sm:text-lg">
                 {Math.floor(stats.elapsedTime / 60)}:
                 {String(stats.elapsedTime % 60).padStart(2, '0')}
               </div>
@@ -337,9 +337,9 @@ export const GameBoard: React.FC<GameBoardProps> = ({
             <div className="h-7 sm:h-8 w-0.5 bg-slate-300" />
 
             <div>
-              <div className="text-slate-600 text-[9px] sm:text-[10px] uppercase font-black tracking-wider">Серія</div>
-              <div className={`font-black text-sm sm:text-base flex items-center gap-1 ${stats.streak > 1 ? 'text-orange-600 animate-pulse' : 'text-slate-800'}`}>
-                {stats.streak > 1 && <Flame className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-orange-500 text-orange-500" />}
+              <div className="text-slate-600 text-xs uppercase font-black tracking-wider">Серія</div>
+              <div className={`font-black text-base sm:text-lg flex items-center gap-1 ${stats.streak > 1 ? 'text-orange-600 animate-pulse' : 'text-slate-800'}`}>
+                {stats.streak > 1 && <Flame className="w-4 h-4 fill-orange-500 text-orange-500" />}
                 x{stats.streak}
               </div>
             </div>
@@ -450,15 +450,15 @@ export const GameBoard: React.FC<GameBoardProps> = ({
                   onClick={() => handleCardClick(card)}
                   whileHover={{ scale: card.isSelected || card.isCorrect || card.isError ? 1.02 : 1.03 }}
                   whileTap={{ scale: 0.96 }}
-                  className={`relative rounded-2xl sm:rounded-3xl p-3.5 sm:p-4 md:p-5 flex flex-col justify-between text-left transition-all duration-150 min-h-[95px] sm:min-h-[110px] group cursor-pointer active:translate-y-0.5 active:shadow-none ${cardStyle}`}
+                  className={`relative rounded-2xl sm:rounded-3xl p-3.5 sm:p-5 flex flex-col justify-between text-left transition-all duration-150 min-h-[105px] sm:min-h-[120px] group cursor-pointer active:translate-y-0.5 active:shadow-none ${cardStyle}`}
                 >
                   {/* Language Tag Indicator or State Badge */}
-                  <div className="flex items-center justify-between w-full mb-1">
+                  <div className="flex items-center justify-between w-full mb-1.5">
                     {stateBadge ? (
                       stateBadge
                     ) : (
                       <span
-                        className={`text-[10px] uppercase font-black tracking-wider px-2 py-0.5 rounded-full ${
+                        className={`text-xs uppercase font-black tracking-wide px-2.5 py-0.5 rounded-full ${
                           card.isSelected
                             ? 'bg-white/30 text-white border border-white/40'
                             : card.language === 'de'
@@ -476,20 +476,22 @@ export const GameBoard: React.FC<GameBoardProps> = ({
                           e.stopPropagation();
                           audioManager.speakGerman(card.text);
                         }}
-                        className={`p-1 rounded-lg transition-colors ${
+                        className={`p-1.5 rounded-xl transition-colors ${
                           card.isSelected || card.isCorrect || card.isError
                             ? 'text-white hover:bg-white/20'
                             : 'text-slate-600 hover:text-orange-600 hover:bg-slate-200'
                         }`}
                         title="Прослухати вимову"
                       >
-                        <Volume2 className="w-4 h-4" />
+                        <Volume2 className="w-4 h-4 sm:w-5 sm:h-5" />
                       </span>
                     )}
                   </div>
 
                   {/* Main Word Text */}
-                  <div className="font-black text-sm sm:text-base md:text-xl leading-snug mt-auto text-slate-900 break-words">
+                  <div className={`font-black text-base sm:text-lg md:text-2xl leading-snug mt-auto break-words ${
+                    card.isSelected || card.isCorrect || card.isError ? 'text-white' : 'text-slate-900'
+                  }`}>
                     {card.text}
                   </div>
 
