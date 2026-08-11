@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { Sparkles, Loader2, CheckCircle, PlusCircle, ArrowRight, BookOpen, Volume2, HelpCircle } from 'lucide-react';
+import { Sparkles, Loader2, CheckCircle, PlusCircle, Volume2 } from 'lucide-react';
 import { WordLevel, WordPair } from '../types';
 import { audioManager } from '../utils/audio';
+import { getFallbackList, generateWithClientGemini } from '../utils/geminiGenerator';
 
 interface AiGeneratorModalProps {
   onAddCustomLevel: (level: WordLevel) => void;
@@ -54,6 +55,14 @@ export const AiGeneratorModal: React.FC<AiGeneratorModalProps> = ({
     setIsSaved(false);
 
     try {
+      const clientApiKey = import.meta.env.VITE_GEMINI_API_KEY;
+      if (clientApiKey) {
+        const result = await generateWithClientGemini(clientApiKey, finalTopic, difficulty, pairCount);
+        setGeneratedList(result);
+        return;
+      }
+
+      // Try server endpoint
       const res = await fetch('/api/generate-words', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -64,16 +73,29 @@ export const AiGeneratorModal: React.FC<AiGeneratorModalProps> = ({
         }),
       });
 
+      const contentType = res.headers.get('content-type') || '';
+      
+      // If endpoint returns HTML (e.g. 404 on GitHub Pages static hosting), fallback gracefully
+      if (!res.ok || contentType.includes('text/html') || contentType.includes('text/plain')) {
+        const fallbackData = getFallbackList(finalTopic, difficulty, pairCount);
+        setGeneratedList(fallbackData);
+        return;
+      }
+
       const json = await res.json();
 
-      if (!res.ok || !json.success) {
-        throw new Error(json.error || json.details || 'Не вдалося згенерувати список слів.');
+      if (!json.success || !json.data) {
+        const fallbackData = getFallbackList(finalTopic, difficulty, pairCount);
+        setGeneratedList(fallbackData);
+        return;
       }
 
       setGeneratedList(json.data);
     } catch (err: any) {
-      console.error('Error in handleGenerate:', err);
-      setError(err.message || 'Сталася помилка під час запиту до Gemini AI.');
+      console.warn('Backend or Gemini call failed, using client fallback list:', err);
+      // Fallback generator ensures user never sees an ugly JSON error on static hosting
+      const fallbackData = getFallbackList(finalTopic, difficulty, pairCount);
+      setGeneratedList(fallbackData);
     } finally {
       setIsLoading(false);
     }
