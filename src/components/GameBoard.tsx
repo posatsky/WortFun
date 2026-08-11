@@ -410,7 +410,7 @@ export const GameBoard: React.FC<GameBoardProps> = ({
       </AnimatePresence>
 
       {/* CARDS GRID */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2.5 sm:gap-4 md:gap-5 min-h-[320px] sm:min-h-[380px]">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-5 min-h-[320px] sm:min-h-[380px]">
         <AnimatePresence mode="popLayout">
           {cards
             .filter((card) => !card.isMatched)
@@ -450,7 +450,7 @@ export const GameBoard: React.FC<GameBoardProps> = ({
                   onClick={() => handleCardClick(card)}
                   whileHover={{ scale: card.isSelected || card.isCorrect || card.isError ? 1.02 : 1.03 }}
                   whileTap={{ scale: 0.96 }}
-                  className={`relative rounded-2xl sm:rounded-3xl p-3 sm:p-4 md:p-5 flex flex-col justify-between text-left transition-all duration-150 min-h-[85px] sm:min-h-[110px] group cursor-pointer active:translate-y-0.5 active:shadow-none ${cardStyle}`}
+                  className={`relative rounded-2xl sm:rounded-3xl p-3.5 sm:p-4 md:p-5 flex flex-col justify-between text-left transition-all duration-150 min-h-[95px] sm:min-h-[110px] group cursor-pointer active:translate-y-0.5 active:shadow-none ${cardStyle}`}
                 >
                   {/* Language Tag Indicator or State Badge */}
                   <div className="flex items-center justify-between w-full mb-1">
@@ -458,7 +458,7 @@ export const GameBoard: React.FC<GameBoardProps> = ({
                       stateBadge
                     ) : (
                       <span
-                        className={`text-[9px] sm:text-[10px] uppercase font-black tracking-wider px-1.5 sm:px-2 py-0.5 rounded-full ${
+                        className={`text-[10px] uppercase font-black tracking-wider px-2 py-0.5 rounded-full ${
                           card.isSelected
                             ? 'bg-white/30 text-white border border-white/40'
                             : card.language === 'de'
@@ -483,13 +483,13 @@ export const GameBoard: React.FC<GameBoardProps> = ({
                         }`}
                         title="Прослухати вимову"
                       >
-                        <Volume2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                        <Volume2 className="w-4 h-4" />
                       </span>
                     )}
                   </div>
 
                   {/* Main Word Text */}
-                  <div className="font-black text-xs sm:text-base md:text-xl leading-snug mt-auto text-slate-900 break-words">
+                  <div className="font-black text-sm sm:text-base md:text-xl leading-snug mt-auto text-slate-900 break-words">
                     {card.text}
                   </div>
 
